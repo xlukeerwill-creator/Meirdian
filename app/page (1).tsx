@@ -293,7 +293,23 @@ export default function App() {
 
         /* SECTION */
         .sec { padding: 140px 48px; max-width: 1200px; margin: 0 auto; }
-        @media (max-width: 768px) { .sec { padding: 80px 24px; } }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 768px) {
+          .sec { padding: 80px 20px; }
+          .loader-name { letter-spacing: 6px; }
+          nav { padding: 14px 20px !important; }
+          .btn-dark, .btn-light { padding: 16px 32px; font-size: 11px; width: 100%; text-align: center; }
+          .svc { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+          .svc::before { display: none; }
+          .svc:hover { padding-left: 0; }
+          .fcard { padding: 32px; }
+          .ocard { padding: 20px; }
+          .sec-full { padding: 80px 20px !important; }
+          .hero-sec { padding: 120px 20px 60px !important; }
+          .parallax-deco { display: none; }
+          .footer-inner { flex-direction: column; text-align: center; gap: 12px; }
+        }
       `}</style>
 
       {/* LOADER */}
@@ -318,9 +334,9 @@ export default function App() {
       </div>
 
       {/* HERO */}
-      <section id="home" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "160px 48px 100px", maxWidth: 1200, margin: "0 auto", position: "relative" }}>
-        <div style={{ position: "absolute", right: "6%", top: "18%", width: 1, height: 200, background: "linear-gradient(to bottom, transparent, rgba(184,151,106,0.15), transparent)", transform: `translateY(${scrollY * -0.12}px)` }} />
-        <div style={{ position: "absolute", right: "9%", top: "38%", fontFamily: "var(--sans)", fontSize: 10, fontWeight: 300, letterSpacing: 4, color: "rgba(20,20,20,0.06)", textTransform: "uppercase", writingMode: "vertical-rl", transform: `translateY(${scrollY * -0.08}px)` }}>Est. 2012 · Global Advisory</div>
+      <section id="home" className="hero-sec" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "160px 48px 100px", maxWidth: 1200, margin: "0 auto", position: "relative" }}>
+        <div className="parallax-deco" style={{ position: "absolute", right: "6%", top: "18%", width: 1, height: 200, background: "linear-gradient(to bottom, transparent, rgba(184,151,106,0.15), transparent)", transform: `translateY(${scrollY * -0.12}px)` }} />
+        <div className="parallax-deco" style={{ position: "absolute", right: "9%", top: "38%", fontFamily: "var(--sans)", fontSize: 10, fontWeight: 300, letterSpacing: 4, color: "rgba(20,20,20,0.06)", textTransform: "uppercase", writingMode: "vertical-rl", transform: `translateY(${scrollY * -0.08}px)` }}>Est. 2012 · Global Advisory</div>
 
         <div id="hero" data-a>
           <p style={{ fontFamily: "var(--sans)", fontSize: 12, fontWeight: 400, letterSpacing: 4, textTransform: "uppercase", opacity: 0.3, marginBottom: 36 }}>
@@ -359,7 +375,7 @@ export default function App() {
       </section>
 
       {/* STATS */}
-      <section style={{ padding: "80px 48px" }}>
+      <section className="sec-full" style={{ padding: "80px 48px" }}>
         <div id="st" data-a style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 40, textAlign: "center" }}>
           {stats.map((s, i) => (
             <div key={i} className={`fu d${i+1} ${vis("st") ? "v" : ""}`}>
@@ -391,7 +407,7 @@ export default function App() {
       </section>
 
       {/* CLIENTS MARQUEE */}
-      <section style={{ padding: "60px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
+      <section className="sec-full" style={{ padding: "60px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
         <div id="cl" data-a style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className={`fu ${vis("cl") ? "v" : ""}`} style={{ fontFamily: "var(--sans)", fontSize: 11, fontWeight: 400, letterSpacing: 3, textTransform: "uppercase", opacity: 0.25, marginBottom: 36, textAlign: "center" }}>Trusted by</p>
           <div className={`fu d2 ${vis("cl") ? "v" : ""}`} style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "20px 48px" }}>
@@ -401,7 +417,7 @@ export default function App() {
       </section>
 
       {/* QUOTE */}
-      <section style={{ padding: "160px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+      <section className="sec-full" style={{ padding: "160px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, opacity: 0.015, backgroundImage: "repeating-linear-gradient(0deg,var(--fg) 0px,var(--fg) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(90deg,var(--fg) 0px,var(--fg) 1px,transparent 1px,transparent 80px)", transform: `translateY(${scrollY * 0.04}px)` }} />
         <div id="qt" data-a style={{ maxWidth: 750, margin: "0 auto", position: "relative" }}>
           <div style={{ fontSize: 140, fontWeight: 300, opacity: 0.04, lineHeight: 0.7, transform: `translateY(${scrollY * -0.06}px)`, marginBottom: -30 }}>“</div>
@@ -411,11 +427,11 @@ export default function App() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" style={{ padding: "160px 48px", background: "var(--dark)", color: "var(--bg)", position: "relative", overflow: "hidden" }}>
+      <section id="about" className="sec-full" style={{ padding: "160px 48px", background: "var(--dark)", color: "var(--bg)", position: "relative", overflow: "hidden" }}>
         <div className="grain" />
         <div id="ab" data-a style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
           <p className={`fu ${vis("ab") ? "v" : ""}`} style={{ fontFamily: "var(--sans)", fontSize: 12, fontWeight: 400, letterSpacing: 4, textTransform: "uppercase", opacity: 0.25, marginBottom: 28 }}>About Meridian</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 80, alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 80, alignItems: "start" }}>
             <h2 style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 300, lineHeight: 1.12 }}>
               <Rev vis={vis("ab")} d={0.2}>Built at the</Rev><br /><Rev vis={vis("ab")} d={0.35}><em>intersection</em> of</Rev><br /><Rev vis={vis("ab")} d={0.5}>law, policy &</Rev><br /><Rev vis={vis("ab")} d={0.65}>business</Rev>
             </h2>
@@ -428,11 +444,11 @@ export default function App() {
       </section>
 
       {/* GLOBAL */}
-      <section id="global" style={{ padding: "160px 48px", background: "var(--dark2)", color: "var(--bg)" }}>
+      <section id="global" className="sec-full" style={{ padding: "160px 48px", background: "var(--dark2)", color: "var(--bg)" }}>
         <div id="gl" data-a style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className={`fu ${vis("gl") ? "v" : ""}`} style={{ fontFamily: "var(--sans)", fontSize: 12, fontWeight: 400, letterSpacing: 4, textTransform: "uppercase", opacity: 0.25, marginBottom: 28 }}>Global Presence</p>
           <h2 className={`fu d1 ${vis("gl") ? "v" : ""}`} style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 300, lineHeight: 1.12, marginBottom: 72 }}>Three offices,<br /><em>one connected network</em></h2>
-          <div className={`si ${vis("gl") ? "v" : ""}`} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 60, alignItems: "center" }}>
+          <div className={`si ${vis("gl") ? "v" : ""}`} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 60, alignItems: "center" }}>
             <Globe active={activeOff} setActive={setActiveOff} />
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {offices.map((o, i) => (
@@ -457,7 +473,7 @@ export default function App() {
             <Rev vis={vis("fh")} d={0.2}><em>Global minds,</em></Rev><br /><Rev vis={vis("fh")} d={0.4}>local instinct</Rev>
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 32, maxWidth: 820 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))", gap: 32, maxWidth: 820 }}>
           {founders.map((f, i) => (
             <div key={i} id={`f${i}`} data-a className={`fcard fu d${i+1} ${vis(`f${i}`) ? "v" : ""}`}>
               <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", marginBottom: 28, border: "2px solid rgba(184,151,106,0.12)" }}>
@@ -473,11 +489,11 @@ export default function App() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ padding: "160px 48px", background: "var(--bg)" }}>
+      <section className="sec-full" style={{ padding: "160px 48px", background: "var(--bg)" }}>
         <div id="tm" data-a style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p className={`fu ${vis("tm") ? "v" : ""}`} style={{ fontFamily: "var(--sans)", fontSize: 12, fontWeight: 400, letterSpacing: 4, textTransform: "uppercase", opacity: 0.3, marginBottom: 28, textAlign: "center" }}>What our clients say</p>
           <h2 className={`fu d1 ${vis("tm") ? "v" : ""}`} style={{ fontSize: "clamp(32px,4.5vw,52px)", fontWeight: 300, lineHeight: 1.15, marginBottom: 80, textAlign: "center" }}><em>Results</em> that speak</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 28 }}>
             {[
               { quote: "Meridian’s deep understanding of EU regulatory frameworks saved us months of delays during our European expansion. Their team didn’t just advise—they embedded with ours.", name: "Sarah Chen", title: "VP International, Helios Energy", },
               { quote: "We needed a partner who understood both Washington politics and Madrid boardrooms. Meridian bridged that gap better than any firm we’d worked with before.", name: "Ricardo Almeida", title: "CEO, Portus Capital Group", },
@@ -506,7 +522,7 @@ export default function App() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" style={{ padding: "160px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
+      <section id="contact" className="sec-full" style={{ padding: "160px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
         <div id="ct" data-a style={{ maxWidth: 680, margin: "0 auto" }}>
           <p className={`fu ${vis("ct") ? "v" : ""}`} style={{ fontFamily: "var(--sans)", fontSize: 12, fontWeight: 400, letterSpacing: 4, textTransform: "uppercase", opacity: 0.3, marginBottom: 28 }}>Get in touch</p>
           <h2 style={{ fontSize: "clamp(36px,5vw,56px)", fontWeight: 300, lineHeight: 1.12, marginBottom: 72 }}>
@@ -523,8 +539,8 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ padding: "56px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
+      <footer className="sec-full" style={{ padding: "56px 48px", borderTop: "1px solid rgba(20,20,20,0.04)" }}>
+        <div className="footer-inner" style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
           <div style={{ fontSize: 18, fontWeight: 400 }}>Meridian</div>
           <div style={{ fontFamily: "var(--sans)", fontSize: 11, fontWeight: 300, opacity: 0.25, letterSpacing: 2 }}>Madrid · London · Washington, D.C.</div>
           <div style={{ fontFamily: "var(--sans)", fontSize: 11, fontWeight: 300, opacity: 0.25 }}>© 2026 Meridian Advisory</div>
