@@ -4,6 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Meridian Advisory",
   description: "International Strategy Consultancy — Madrid · London · Washington, D.C.",
+  openGraph: {
+    title: "Meridian Advisory",
+    description: "International Strategy Consultancy — Madrid · London · Washington, D.C.",
+    siteName: "Meridian Advisory",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
